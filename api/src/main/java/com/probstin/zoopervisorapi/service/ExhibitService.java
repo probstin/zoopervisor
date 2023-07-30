@@ -50,6 +50,15 @@ public class ExhibitService {
     // TODO
     // create an Exhibit model
     // transform: {"SPECIES": {"species": "", "spaces": n }, ... }
-    // into: [ { "uuid": "", "name": "", "animals": [...] }, ... ]
+    // into:{ "exhibits": [ { "uuid": "", "name": "", "animals": [...] }, ... ] }
 
+    // TODO
+    // set a global exhibit list
+    // for each species key & associated list
+    // set a scoped space count
+    // set a scoped exhibit list
+    // loop through the associated list
+    // check the spacesUsed + current animal spaces
+    // if it's more than 20, add the entry to the exhibit list and reset scope state
+    // if it's not add to the scoped exhibit list and increment the space count
 }
