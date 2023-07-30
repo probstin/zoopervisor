@@ -35,13 +35,32 @@ public class ExhibitService {
         List<Exhibit> exhibits = new ArrayList<>();
 
         this.getAnimalsGroupedBySpecies()
-                .forEach((species, animalsInSpecies) -> {
-                    Exhibit exhibit = new Exhibit(
-                            UUID.randomUUID().toString(),
-                            species + " EXHIBIT",
-                            new ArrayList<>(animalsInSpecies));
+                .forEach((species, animalsBySpecies) -> {
+                    int spacesUsed = 0;
+                    List<ExchangeAnimal> currentExhibitAnimals = new ArrayList<>();
 
-                    exhibits.add(exhibit);
+                    for (ExchangeAnimal animal : animalsBySpecies) {
+                        if (spacesUsed + animal.getSpaces() > 20) {
+                            exhibits.add(
+                                    new Exhibit(
+                                            UUID.randomUUID().toString(),
+                                            animal.getSpecies().toUpperCase() + " EXHIBIT",
+                                            new ArrayList<>(currentExhibitAnimals)));
+                            currentExhibitAnimals.clear();
+                            spacesUsed = 0;
+                        }
+
+                        currentExhibitAnimals.add(animal);
+                        spacesUsed += animal.getSpaces();
+                    }
+
+                    if (!currentExhibitAnimals.isEmpty()) {
+                        exhibits.add(
+                                new Exhibit(
+                                        UUID.randomUUID().toString(),
+                                        species.toUpperCase() + " EXHIBIT",
+                                        currentExhibitAnimals));
+                    }
                 });
 
         return exhibits;
