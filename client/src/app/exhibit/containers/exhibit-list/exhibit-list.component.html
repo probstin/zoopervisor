@@ -1,0 +1,4 @@
+<h1>Exhibits</h1>
+<ng-container *ngIf="(exhibits$ | async) as exhibits">
+    {{exhibits | json }}
+</ng-container>

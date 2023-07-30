@@ -4,4 +4,4 @@ exchange.client:
   name: exchange-client
   apiKey: ${EXCHANGE_API_KEY}
   apiUrl: ${EXCHANGE_API_URL}
-
+  
