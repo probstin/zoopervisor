@@ -1,15 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 
 @Injectable()
 export class ExhibitService {
 
-  constructor(private _http: HttpClient) { }
+  EXHIBITS_API!: string;
+
+  constructor(private _http: HttpClient) {
+    this.EXHIBITS_API = environment.apiUrl;
+  }
 
   public getExhibits(): Observable<any> {
-    return this._http
-      .get('http://localhost:8080/api/v1/exhibits')
+    return this._http.get(`${this.EXHIBITS_API}/exhibits`);
   }
 
 }
