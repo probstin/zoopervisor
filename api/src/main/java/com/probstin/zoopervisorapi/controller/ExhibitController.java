@@ -1,7 +1,6 @@
 package com.probstin.zoopervisorapi.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.probstin.zoopervisorapi.model.ExchangeAnimal;
+import com.probstin.zoopervisorapi.model.Exhibit;
 import com.probstin.zoopervisorapi.service.ExhibitService;
 
 @RestController
@@ -24,11 +23,13 @@ public class ExhibitController {
     }
 
     @GetMapping
-    public ResponseEntity<Map<String, List<ExchangeAnimal>>> getExhibits() {
-        Map<String, List<ExchangeAnimal>> exhibits = this.exhibitService
-            .getAnimalsGroupedBySpecies();
-            
-        return ResponseEntity.ok().body(exhibits);
+    public ResponseEntity<List<Exhibit>> getExhibits() {
+        List<Exhibit> exhibits = this.exhibitService
+                .getExhibits();
+
+        return ResponseEntity
+                .ok()
+                .body(exhibits);
     }
 
 }

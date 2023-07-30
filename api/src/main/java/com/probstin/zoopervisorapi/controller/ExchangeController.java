@@ -25,8 +25,10 @@ public class ExchangeController {
         List<ExchangeAnimal> exchangeInventory = this.exchangeClient
                 .getAnimalInventory()
                 .getAnimals();
-                
-        return ResponseEntity.ok().body(exchangeInventory);
+
+        return ResponseEntity
+                .ok()
+                .body(exchangeInventory);
     }
 
 }
