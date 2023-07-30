@@ -1,0 +1,7 @@
+server.servlet.context-path: /api
+
+animal.exchange.client:
+  name: animal-exchange-client
+  apiKey: ${ANIMAL_EXCHANGE_API_KEY}
+  apiUrl: ${ANIMAL_EXCHANGE_API_URL}
+

@@ -5,6 +5,7 @@ services:
     image: probstin09/zoopervisor-api:latest
     ports:
       - "8080:8080"
+    env_file: ./api/.env
     networks:
       - zoopervisor-network
 

@@ -31,6 +31,18 @@ dependencyManagement {
 	}
 }
 
+def Properties sourceEnvProperties() {
+    Properties p = new Properties();
+    p.load(new FileInputStream(file(project.projectDir).absolutePath + "/.env"));
+    return p;
+}
+
+bootRun {
+	doFirst {
+		bootRun.systemProperties = sourceEnvProperties()
+	}
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
