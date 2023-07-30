@@ -1,13 +1,14 @@
 package com.probstin.zoopervisorapi.model;
 
-public class AnimalExchangeAnimal {
+public class ExchangeAnimal {
+    
     private String species;
     private Integer spaces;
 
-    public AnimalExchangeAnimal() {
+    public ExchangeAnimal() {
     }
 
-    public AnimalExchangeAnimal(String species, Integer spaces) {
+    public ExchangeAnimal(String species, Integer spaces) {
         this.species = species.toUpperCase();
         this.spaces = spaces;
     }
@@ -17,7 +18,7 @@ public class AnimalExchangeAnimal {
     }
 
     public void setSpecies(String species) {
-        this.species = species;
+        this.species = species.toUpperCase();
     }
 
     public Integer getSpaces() {
@@ -27,4 +28,5 @@ public class AnimalExchangeAnimal {
     public void setSpaces(Integer spaces) {
         this.spaces = spaces;
     }
+
 }

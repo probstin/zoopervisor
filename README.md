@@ -6,7 +6,7 @@ A Zoo management application built with Spring Boot and Angular.
 
 - `git clone git@github.com:probstin/zoopervisor.git && cd zoopervisor`
 - `mv api/.env.EXAMPLE api/.env`
-- Add the `ANIMAL_EXCHANGE_API_KEY` & `ANIMAL_EXCHANGE_API_URL` values to the `./api/.env` file
+- Add the `EXCHANGE_API_KEY` & `EXCHANGE_API_URL` values to the `./api/.env` file
 - `docker compose up`
 
 ## :whale: Docker

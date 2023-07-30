@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Configuration;
 import feign.RequestInterceptor;
 
 @Configuration
-public class AnimalExchangeClientConfig {
+public class ExchangeClientConfig {
 
-    @Value("${animal.exchange.client.apiKey}")
+    @Value("${exchange.client.apiKey}")
     String apiKey;
 
     @Bean
