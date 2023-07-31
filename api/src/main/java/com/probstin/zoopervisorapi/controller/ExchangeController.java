@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.probstin.zoopervisorapi.http.ExchangeClient;
+import com.probstin.zoopervisorapi.http.exchange.ExchangeClient;
 import com.probstin.zoopervisorapi.model.ExchangeAnimal;
 
 @RestController

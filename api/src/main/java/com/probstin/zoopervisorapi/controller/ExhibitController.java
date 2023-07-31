@@ -1,6 +1,7 @@
 package com.probstin.zoopervisorapi.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,13 +24,13 @@ public class ExhibitController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Exhibit>> getExhibits() {
-        List<Exhibit> exhibits = this.exhibitService
-                .getExhibits();
+    public ResponseEntity<Map<String, List<Exhibit>>> getExhibits() {
+        List<Exhibit> exhibits = this.exhibitService.getExhibits();
+        Map<String, List<Exhibit>> exhibitResponse = Map.of("exhibits", exhibits);
 
         return ResponseEntity
                 .ok()
-                .body(exhibits);
+                .body(exhibitResponse);
     }
 
 }

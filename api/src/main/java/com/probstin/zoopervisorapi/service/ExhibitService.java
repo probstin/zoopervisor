@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.probstin.zoopervisorapi.http.ExchangeClient;
+import com.probstin.zoopervisorapi.http.exchange.ExchangeClient;
 import com.probstin.zoopervisorapi.model.ExchangeAnimal;
 import com.probstin.zoopervisorapi.model.Exhibit;
 
