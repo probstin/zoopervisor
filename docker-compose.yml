@@ -1,5 +1,7 @@
 version: '3'
 
+# I left the repos public so you should be able to pull! :)
+
 services:
   zoopervisor-api:
     image: probstin09/zoopervisor-api:latest
