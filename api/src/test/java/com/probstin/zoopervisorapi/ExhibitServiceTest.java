@@ -1,6 +1,7 @@
 package com.probstin.zoopervisorapi;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -14,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.probstin.zoopervisorapi.exception.ApiRequestException;
 import com.probstin.zoopervisorapi.model.ExchangeAnimal;
 import com.probstin.zoopervisorapi.model.Exhibit;
 import com.probstin.zoopervisorapi.service.ExchangeService;
@@ -70,6 +72,15 @@ public class ExhibitServiceTest {
 
         // Assert
         assertEquals(2, exhibits.size());
+    }
+
+    @Test
+    void shouldThrowACustomErrorWhenTheExchangeFails() {
+        // Arrange
+        when(exchangeService.getAnimalsGroupedBySpecies()).thenThrow(RuntimeException.class);
+
+        // Act
+        assertThrows(ApiRequestException.class, () -> exhibitService.getExhibits());
     }
 
 }
