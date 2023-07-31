@@ -4,6 +4,6 @@ export enum ContentState {
 
 export interface ApiObservable<T> {
     state: ContentState,
-    data?: T // make this a generic,
+    data?: T,
     error?: any
 }

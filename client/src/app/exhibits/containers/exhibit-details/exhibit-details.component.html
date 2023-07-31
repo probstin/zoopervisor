@@ -1,0 +1,51 @@
+<ng-container *ngIf="(exhibit$ | async) as exhibit;" [ngSwitch]="exhibit.state">
+    <ng-container *ngSwitchCase="ContentState.LOADING">
+        <p-skeleton height="9rem" />
+        <div class="p-4">
+            <p-skeleton height="10rem" styleClass="mb-4" />
+            <p-skeleton height="10rem" />
+        </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="ContentState.ERROR">
+        <p>Failed to load exhibit: {{exhibit.error}}.</p>
+    </ng-container>
+    <ng-container *ngSwitchCase="ContentState.LOADED">
+        <ng-container *ngIf="exhibit.data as exhibit">
+            <div class="bg-primary border-bottom-1 border-400 px-4 py-3">
+                <a [routerLink]="returnLink" class="text-blue-400 no-underline">Back to Exhibits</a>
+            </div>
+            <div class="bg-primary p-4">
+                <div class="flex align-items-center justify-content-between flex-wrap mb-4">
+                    <h1 class="m-0 mb-4 sm:mb-0">{{exhibit.name}}</h1>
+                    <p-chip *ngIf="exhibit.spacesUsed == 20" label="Full Exhibit" styleClass="full-chip" />
+                </div>
+                <div class="text-100 my-4">{{exhibit.uuid}}</div>
+                <div class="flex justify-content-start flex-wrap gap-4">
+                    <span><span class="text-100">Animals:</span> {{exhibit.animals.length}}</span>
+                    <span><span class="text-100">Available Spaces:</span> {{20 - exhibit.spacesUsed}}</span>
+                </div>
+            </div>
+            <div class="p-4">
+                <h2 class="mt-0">Animals in this Exhibit</h2>
+                <div *ngFor="let animal of exhibit.animals; let i = index; let l = last"
+                    class="p-4 border-1 border-400 border-round" [ngClass]="{'mb-4' : !l}">
+                    <ng-container *ngIf="exhibit.catalog[i]; else noCatalogData">
+                        <h3 class="mt-0 mb-4">{{exhibit.catalog[i].name}}</h3>
+                        <div class="flex justify-content-start flex-wrap gap-4">
+                            <span><span class="text-color-secondary">Spaces Used:</span> {{animal.spaces}}</span>
+                            <span *ngFor="let characteristic of exhibit.catalog[i].characteristics | keyvalue">
+                                <span class="text-color-secondary">{{$any(characteristic.key) | replaceUnderscore |
+                                    titlecase}}:</span>
+                                {{characteristic.value}}
+                            </span>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+</ng-container>
+
+<ng-template #noCatalogData>
+    <p>There is no data available on this animal.</p>
+</ng-template>
