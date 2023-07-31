@@ -6,6 +6,11 @@ import { ExhibitListComponent } from './containers/exhibit-list/exhibit-list.com
 import { ExhibitService } from './services/exhibit.service';
 import { ExhibitDetailsComponent } from './containers/exhibit-details/exhibit-details.component';
 import { ExhibitRoutingModule } from './exhibit-routing.module';
+import { CardModule } from 'primeng/card';
+import { ChipModule } from 'primeng/chip';
+import { SkeletonModule } from 'primeng/skeleton';
+
+const primeModules = [CardModule, ChipModule, SkeletonModule];
 
 @NgModule({
   declarations: [
@@ -16,7 +21,8 @@ import { ExhibitRoutingModule } from './exhibit-routing.module';
   imports: [
     CommonModule,
     ExhibitRoutingModule,
-    SharedModule
+    SharedModule,
+    ...primeModules
   ],
   providers: [ExhibitService],
   exports: [ExhibitListComponent]

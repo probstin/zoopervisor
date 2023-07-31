@@ -11,8 +11,8 @@ import { ExhibitService } from '../../services/exhibit.service';
 export class ExhibitListComponent {
 
   public readonly ContentState = ContentState;
-
   public exhibits$!: Observable<ApiObservable<any>>;
+  public skeletons: number[] = [0,1,2,3,4,5,6,7];
 
   constructor(private _exhibitService: ExhibitService) {
     this.exhibits$ = this._exhibitService.getExhibits();

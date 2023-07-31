@@ -1,6 +1,13 @@
-<a [routerLink]="exhibit.uuid">{{exhibit.name}}</a>
-<br />
-<span>No. of Animals: {{exhibit.animals.length}}</span>
-<br />
-<span>Spaces Used: {{exhibit.spacesUsed}}</span>
-<br />
+<a [routerLink]="exhibit.uuid" class="no-underline">
+    <div class="list-item">
+        <div class="flex align-items-center justify-content-between flex-wrap mb-3">
+            <h2 class="m-0 mb-2 sm:mb-0">{{exhibit.name | titlecase}}</h2>
+            <p-chip *ngIf="exhibit.spacesUsed == 20" label="Full Exhibit" styleClass="full-chip" />
+        </div>
+        <div class="text-color-secondary my-3">{{exhibit.uuid}}</div>
+        <div class="flex justify-content-start flex-wrap gap-3">
+            <span><span class="text-color-secondary">Animals:</span> {{exhibit.animals.length}}</span>
+            <span><span class="text-color-secondary">Available Spaces:</span> {{20 - exhibit.spacesUsed}}</span>
+        </div>
+    </div>
+</a>

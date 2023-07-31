@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import com.probstin.zoopervisorapi.model.Exhibit;
 @Service
 public class ExhibitService {
 
-    private ExchangeClient animalExchangeClient;
+    private final ExchangeClient animalExchangeClient;
 
     @Autowired
     public ExhibitService(ExchangeClient animalExchangeClient) {
@@ -33,6 +34,7 @@ public class ExhibitService {
 
     public List<Exhibit> getExhibits() {
         List<Exhibit> exhibits = new ArrayList<>();
+        AtomicInteger exhibitIndex = new AtomicInteger(1);
 
         this.getAnimalsGroupedBySpecies()
                 .forEach((species, animalsBySpecies) -> {
@@ -44,7 +46,8 @@ public class ExhibitService {
                             exhibits.add(
                                     new Exhibit(
                                             UUID.randomUUID().toString(),
-                                            animal.getSpecies().toUpperCase() + " EXHIBIT",
+                                            animal.getSpecies().toUpperCase() + " EXHIBIT "
+                                                    + exhibitIndex.getAndIncrement(),
                                             spacesUsed,
                                             new ArrayList<>(currentExhibitAnimals)));
                             currentExhibitAnimals.clear();
@@ -59,7 +62,7 @@ public class ExhibitService {
                         exhibits.add(
                                 new Exhibit(
                                         UUID.randomUUID().toString(),
-                                        species.toUpperCase() + " EXHIBIT",
+                                        species.toUpperCase() + " EXHIBIT " + exhibitIndex.getAndIncrement(),
                                         spacesUsed,
                                         currentExhibitAnimals));
                     }

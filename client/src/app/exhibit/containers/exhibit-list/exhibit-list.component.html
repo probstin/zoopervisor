@@ -1,13 +1,19 @@
-<h1>Exhibits</h1>
-
+<div class="bg-primary p-4">
+    <h1 class="mt-0 mb-2">Exhibits</h1>
+    <p class="m-0 text-100">View exhibits and their capacities. Select an exhibit to view more details.</p>
+</div>
 <ng-container *ngIf="(exhibits$ | async) as exhibits;" [ngSwitch]="exhibits.state">
     <ng-container *ngSwitchCase="ContentState.LOADING">
-        <p>Loading exhibits...</p>
+        <div class="grid">
+            <p-skeleton *ngFor="let skeleton of skeletons" height="9rem" class="col-12 md:col-6 lg:col-3" />
+        </div>
     </ng-container>
     <ng-container *ngSwitchCase="ContentState.ERROR">
         <p>Failed to load exhibits: {{exhibits.error}}.</p>
     </ng-container>
-    <ng-container *ngSwitchCase="ContentState.LOADED">
-        <app-exhibit-list-item *ngFor="let exhibit of exhibits.data" [exhibit]="exhibit" />
-    </ng-container>
+    <div *ngSwitchCase="ContentState.LOADED" class="grid p-4">
+        <div class="col-12 md:col-6 lg:col-3" *ngFor="let exhibit of exhibits.data">
+            <app-exhibit-list-item [exhibit]="exhibit" />
+        </div>
+    </div>
 </ng-container>
