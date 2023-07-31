@@ -5,11 +5,13 @@ import java.util.List;
 public class Exhibit {
     private String uuid;
     private String name;
+    private Integer spacesUsed;
     private List<ExchangeAnimal> animals;
 
-    public Exhibit(String uuid, String name, List<ExchangeAnimal> animals) {
+    public Exhibit(String uuid, String name, Integer spacesUsed, List<ExchangeAnimal> animals) {
         this.uuid = uuid;
         this.name = name;
+        this.spacesUsed = spacesUsed;
         this.animals = animals;
     }
 
@@ -27,6 +29,14 @@ public class Exhibit {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getSpacesUsed() {
+        return spacesUsed;
+    }
+
+    public void setSpacesUsed(Integer spacesUsed) {
+        this.spacesUsed = spacesUsed;
     }
 
     public List<ExchangeAnimal> getAnimals() {

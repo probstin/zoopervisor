@@ -45,6 +45,7 @@ public class ExhibitService {
                                     new Exhibit(
                                             UUID.randomUUID().toString(),
                                             animal.getSpecies().toUpperCase() + " EXHIBIT",
+                                            spacesUsed,
                                             new ArrayList<>(currentExhibitAnimals)));
                             currentExhibitAnimals.clear();
                             spacesUsed = 0;
@@ -59,6 +60,7 @@ public class ExhibitService {
                                 new Exhibit(
                                         UUID.randomUUID().toString(),
                                         species.toUpperCase() + " EXHIBIT",
+                                        spacesUsed,
                                         currentExhibitAnimals));
                     }
                 });

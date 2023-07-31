@@ -1,2 +1,6 @@
-<div>{{exhibit.name}}</div>
+<a [routerLink]="exhibit.uuid">{{exhibit.name}}</a>
+<br />
+<span>No. of Animals: {{exhibit.animals.length}}</span>
+<br />
+<span>Spaces Used: {{exhibit.spacesUsed}}</span>
 <br />
