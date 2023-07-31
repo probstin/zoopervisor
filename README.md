@@ -80,12 +80,12 @@ docker push probstin09/zoopervisor-client:latest
 
 - [ ] Add a database/cache to persist the exchange payload
 - [ ] Add Cypress E2E and Component tests
-- [ ] Comb through accessibility opporunities (semantics, attributes, etc.)
+- [ ] Comb through accessibility opportunities (semantics, attributes, Axe, etc.)
 - [ ] Expand exception handling in the API
 - [ ] Add error toasters on in the UI
 - [ ] Add the ability to filter the exhibits (show full, show open)
-- [ ] Find a way to resolve images for animals, searching by species?
-- [ ] Clean up the details metadata display for each animal variant
-- [ ] Add authentication
-- [ ] Add the ability to move Animals between exhibits
+- [ ] Find a way to resolve images for animals too
+- [ ] Clean up the Exhibit details metadata display for each animal variant
+- [ ] Add authentication (and authorization if necessary)
+- [ ] Add the ability to move Animals between exhibits?
 - [ ] Add a theme toggle
