@@ -29,11 +29,11 @@
                 <h2 class="mt-0">Animals in this Exhibit</h2>
                 <div *ngFor="let animal of exhibit.animals; let i = index; let l = last"
                     class="p-4 border-1 border-400 border-round" [ngClass]="{'mb-4' : !l}">
-                    <ng-container *ngIf="exhibit.catalog[i]; else noCatalogData">
-                        <h3 class="mt-0 mb-4">{{exhibit.catalog[i].name}}</h3>
+                    <ng-container *ngIf="exhibit?.catalog?.[i]; else noCatalogData">
+                        <h3 class="mt-0 mb-4">{{exhibit?.catalog?.[i]?.name}}</h3>
                         <div class="flex justify-content-start flex-wrap gap-4">
                             <span><span class="text-color-secondary">Spaces Used:</span> {{animal.spaces}}</span>
-                            <span *ngFor="let characteristic of exhibit.catalog[i].characteristics | keyvalue">
+                            <span *ngFor="let characteristic of exhibit?.catalog?.[i]?.characteristics | keyvalue">
                                 <span class="text-color-secondary">{{$any(characteristic.key) | replaceUnderscore |
                                     titlecase}}:</span>
                                 {{characteristic.value}}

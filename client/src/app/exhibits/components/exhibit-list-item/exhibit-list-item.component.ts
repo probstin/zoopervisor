@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IExhibit } from '../../models/exhibit';
 
 @Component({
   selector: 'app-exhibit-list-item',
@@ -7,6 +8,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ExhibitListItemComponent {
 
-  @Input() exhibit: any;
+  @Input() exhibit!: IExhibit;
 
 }
