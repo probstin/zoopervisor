@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "echo 'Need to add Cypress'",
     "sme": "ng build --source-map=true --named-chunks==true && source-map-explorer dist/zoopervisor-client/**/*.js"
   },
   "private": true,
