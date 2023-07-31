@@ -2,6 +2,15 @@
 
 A Zoo management application built with Spring Boot and Angular.
 
+## :white_check_mark: Prerequisites...
+
+- You must have Docker Desktop (or Docker CE & Docker Compose)
+
+To run outside of Docker...
+
+- You must have Node `>= v16`
+- You must have Java `>= v17`
+
 ## :running: Quick Start
 
 - `git clone git@github.com:probstin/zoopervisor.git && cd zoopervisor`
@@ -66,3 +75,17 @@ docker run -p 4200:4200 probstin09/zoopervisor-client
 # publish (to the probstin09 DockerHub repo)
 docker push probstin09/zoopervisor-client:latest
 ```
+
+## :nail_care: TODO
+
+- [ ] Add a database/cache to persist the exchange payload
+- [ ] Add Cypress E2E and Component tests
+- [ ] Comb through accessibility opporunities (semantics, attributes, etc.)
+- [ ] Expand exception handling in the API
+- [ ] Add error toasters on in the UI
+- [ ] Add the ability to filter the exhibits (show full, show open)
+- [ ] Find a way to resolve images for animals, searching by species?
+- [ ] Clean up the details metadata display for each animal variant
+- [ ] Add authentication
+- [ ] Add the ability to move Animals between exhibits
+- [ ] Add a theme toggle
