@@ -1,4 +1,5 @@
 server.servlet.context-path: /api
+cors.origins: http://localhost:4200
 
 exchange.client:
   name: exchange-client
