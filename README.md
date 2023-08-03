@@ -38,7 +38,7 @@ To profile...
 ### API
 
 To run...
-- `mv api/.env.EXAMPLE api/.env`
+- `cp api/.env.EXAMPLE api/.env`
 - Add the `EXCHANGE_***`, `CATALOG_***` values to the `./api/.env` file
 - `cd api && ./gradlew bootRun`
 - http://localhost:8080
